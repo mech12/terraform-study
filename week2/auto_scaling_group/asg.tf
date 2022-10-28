@@ -12,9 +12,13 @@ resource "aws_autoscaling_group" "akbun-asg" {
   }
 }
 
-# 샘플 코드 : 실행을 하지는 않음
 resource "aws_launch_configuration" "akbun-launchconfig" {
   image_id        = data.aws_ami.my_amazonlinux2.id
   instance_type   = "t2.nano"
   security_groups = [aws_security_group.akbun-mysg.id]
+
+  # Required when using a launch configuration with an auto scaling group.
+  lifecycle {
+    create_before_destroy = true
+  }
 }
