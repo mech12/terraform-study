@@ -26,7 +26,7 @@ resource "aws_lb_listener" "myhttp" {
   }
 }
 
-resource "aws_lb_target_group" "myalbtg" {
+resource "aws_lb_target_group" "akbun-tg" {
   name = "t101-alb-tg"
   port     = 80
   protocol = "HTTP"
@@ -40,6 +40,22 @@ resource "aws_lb_target_group" "myalbtg" {
     timeout             = 3
     healthy_threshold   = 2
     unhealthy_threshold = 2
+  }
+}
+
+resource "aws_lb_listener_rule" "akbun-albrule" {
+  listener_arn = aws_lb_listener.myhttp.arn
+  priority     = 100
+
+  condition {
+    path_pattern {
+      values = ["*"]
+    }
+  }
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.akbun-tg.arn
   }
 }
 
