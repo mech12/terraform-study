@@ -1,0 +1,33 @@
+# workspace
+* workspace를 생성해면 .terraform/environment파일이 생성된다.
+
+# state파일에는 값이 평문으로 저장됨
+
+# remote state + data
+* data bloack을 사용하여 원격 상태값을 가져올 수 있음
+```sh
+data "terraform_remote_state" "db" {
+  backend = "s3"
+  config = {
+    bucket = "$NICKNAME-t101study-tfstate-week3-files"
+    key    = "stage/data-stores/mysql/terraform.tfstate"
+    region = "ap-northeast-2"
+  }
+}
+```
+
+# templatefile
+* templatefile 함수는 PATH 에서 파일을 읽고 그 내용을 문자열로 반환
+
+# templatefile + data
+```
+data "template_file" "user_data" {
+  template = file("user-data.sh")
+
+  vars = {
+    server_port = 8080
+    db_address  = data.terraform_remote_state.db.outputs.address
+    db_port     = data.terraform_remote_state.db.outputs.port
+  }
+}
+```
