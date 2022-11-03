@@ -24,5 +24,5 @@ egrep 'username|password' terraform.tfstate
 
 # 삭제
 ```bash
-terraform destroy
+terraform init; terraform destroy
 ```
