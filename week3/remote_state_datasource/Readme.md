@@ -12,4 +12,6 @@ terraform init; terraform apply
 ```
 
 # 실행
-
+```bash
+terraform init; terraform apply
+```
