@@ -33,6 +33,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Ignore terraform lock
+.terraform.lock.hcl
+
 # pluralith
 .pluralith/
 pluralith.yml
