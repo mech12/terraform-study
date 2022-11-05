@@ -1,6 +1,6 @@
 resource "aws_db_subnet_group" "mydbsubnet" {
   name       = "mydbsubnetgroup"
-  subnet_ids = [data.terraform_remote_state.remote_vpc.outputs.mysubnet3, data.terraform_remote_state.remote_vpc.outputs.mysubnet4]
+  subnet_ids = [var.subnet1, var.subnet2]
 
   tags = {
     Name = "My DB subnet group"
@@ -13,7 +13,7 @@ resource "aws_db_instance" "myrds" {
   allocated_storage      = 10
   instance_class         = "db.t2.micro"
   db_subnet_group_name   = aws_db_subnet_group.mydbsubnet.name
-  vpc_security_group_ids = [data.terraform_remote_state.remote_vpc.outputs.mysg]
+  vpc_security_group_ids = [var.security_group]
   skip_final_snapshot    = true
 
   db_name                = var.db_name
