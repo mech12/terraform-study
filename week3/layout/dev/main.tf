@@ -6,6 +6,7 @@ module "my-vpc" {
 
 module "my-db" {
   source  = "./db"
+  depends_on = [module.my-vpc]
 
   subnet1 = module.my-vpc.mysubnet3
   subnet2 = module.my-vpc.mysubnet4
