@@ -51,9 +51,3 @@ resource "aws_route" "mydefaultroute" {
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.myigw.id
 }
-
-resource "aws_security_group" "mysg" {
-  vpc_id      = var.vpc_id
-  name        = "T101 SG"
-  description = "T101 Study SG"
-}
