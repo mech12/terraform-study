@@ -37,6 +37,10 @@ resource "aws_launch_configuration" "mylauchconfig" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = [
+    data.template_file.user_data
+  ]
 }
 
 resource "aws_autoscaling_group" "myasg" {
@@ -52,5 +56,16 @@ resource "aws_autoscaling_group" "myasg" {
     key                 = "Name"
     value               = "terraform-asg"
     propagate_at_launch = true
+  }
+
+  termination_policies = [
+    "OldestLaunchConfiguration"
+  ]
+
+  instance_refresh {
+    strategy = "Rolling"
+    preferences {
+      min_healthy_percentage = 50
+    }
   }
 }
