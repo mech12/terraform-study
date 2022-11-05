@@ -1,3 +1,8 @@
+output "my_vpc_id" {
+  value       = aws_vpc.myvpc.id
+  description = "vpc"
+}
+
 output "mysubnet3" {
   value       = aws_subnet.mysubnet3.id
   description = "mysubnet3"

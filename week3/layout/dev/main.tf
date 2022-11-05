@@ -14,3 +14,15 @@ module "my-db" {
   db_username = var.db_username
   db_password = var.db_password
 }
+
+module "my-service" {
+  source  = "./service"
+  depends_on = [module.my-vpc, module.my-db]
+
+  # vpc_id = module.my-vpc.my_vpc_id
+  # db_address = module.my-db.db_address
+  # db_port = module.my-db.db_port
+  vpc_id = data.terraform_remote_state.dev_remote.outputs.my_vpc_id
+  db_address = data.terraform_remote_state.dev_remote.outputs.db_address
+  db_port = data.terraform_remote_state.dev_remote.outputs.db_port
+}
