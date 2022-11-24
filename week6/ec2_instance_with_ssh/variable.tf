@@ -3,3 +3,9 @@ variable "name" {
   type        = string
   default     = "ec2-iam-role-example"
 }
+
+variable "bucket_name" {
+  type        = string
+  default     = "akbun-t101study-credexample"
+  description = "bucket name"
+}

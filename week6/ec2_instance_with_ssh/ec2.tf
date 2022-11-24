@@ -21,7 +21,7 @@ data "aws_ami" "amazon-linux-2" {
 
 resource "aws_instance" "example" {
   ami                    = data.aws_ami.amazon-linux-2.id
-  instance_type          = "t2.micro"
+  instance_type          = "t2.nano"
   key_name               = aws_key_pair.demo.key_name
   vpc_security_group_ids = [aws_security_group.stg_mysg.id]
 
@@ -55,6 +55,31 @@ data "aws_iam_policy_document" "ec2_admin_permissions" {
     effect    = "Allow"
     actions   = ["ec2:*"]
     resources = ["*"]
+  }
+
+  statement {
+    sid = "1"
+
+    actions = [
+      "s3:ListAllMyBuckets",
+      "s3:GetBucketLocation",
+    ]
+
+    resources = [
+      "arn:aws:s3:::*",
+    ]
+  }
+
+  statement {
+    actions = [
+      "s3:List*",
+      "s3:Get*",
+    ]
+
+    resources = [
+      "arn:aws:s3:::${var.bucket_name}",
+      "arn:aws:s3:::${var.bucket_name}/*",
+    ]
   }
 }
 
