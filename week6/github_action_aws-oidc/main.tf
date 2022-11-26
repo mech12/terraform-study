@@ -33,12 +33,6 @@ data "aws_iam_policy_document" "github_allow" {
 
 data "aws_iam_policy_document" "policy_bucket_list" {
   statement {
-    effect    = "Allow"
-    actions   = ["ec2:*"]
-    resources = ["*"]
-  }
-
-  statement {
     sid = "1"
 
     actions = [
