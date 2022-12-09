@@ -1,0 +1,8 @@
+server:
+  extraArgs:
+    - --insecure
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - argocd.localtest
