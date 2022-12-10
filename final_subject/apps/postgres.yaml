@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: argowf-postgres
-  namespace: argowf
+  namespace: cnpg
 spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:14.2
   instances: 1
