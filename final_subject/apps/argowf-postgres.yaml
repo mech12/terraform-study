@@ -9,7 +9,7 @@ spec:
     namespace: argowf
     server: 'https://kubernetes.default.svc'
   source:
-    path: charts/argo-workflows
+    path: final_subject/apps/postgres
     repoURL: 'https://github.com/sungwook-practice/terraform-study.git'
     targetRevision: HEAD
   project: default
