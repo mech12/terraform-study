@@ -15,7 +15,7 @@ spec:
     helm:
       valueFiles:
         - override_values.yaml
-  project: infra
+  project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
