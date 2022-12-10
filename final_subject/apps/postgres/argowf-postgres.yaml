@@ -17,8 +17,8 @@ spec:
   enableSuperuserAccess: true
   bootstrap:
     initdb:
-      database: app
+      database: postgres
       encoding: UTF8
       localeCType: C
       localeCollate: C
-      owner: app
+      owner: postgres
