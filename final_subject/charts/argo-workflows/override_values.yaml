@@ -7,7 +7,7 @@ server:
 
 controller:
   postgresql:
-    host: argowf-rw.argowf.svc
+    host: argowf-rw.cnpg.svc
     port: 5432
     database: postgres
     tableName: argo_workflows
