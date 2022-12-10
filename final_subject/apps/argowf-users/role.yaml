@@ -68,6 +68,9 @@ rules:
       - get
       - list
       - watch
+      - update
+      - patch
+      - delete
   - apiGroups:
       - argoproj.io
     resources:
