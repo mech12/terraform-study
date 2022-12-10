@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cpng-operator
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: cnpg
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://cloudnative-pg.github.io/charts'
+    targetRevision: 0.16.0
+    chart: cloudnative-pg
+    helm:
+      valueFiles:
+        - values.yaml
+  project: infra
+  syncPolicy:
+    automated: null
+    syncOptions:
+      - CreateNamespace=true
