@@ -1,0 +1,32 @@
+server:
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    hosts:
+      - argowf.localtest
+
+controller:
+  postgresql:
+    host: argowf-rw.argowf.svc
+    port: 5432
+    database: postgres
+    tableName: argo_workflows
+    userNameSecret:
+      name: argowf-superuser
+      key: username
+    passwordSecret:
+      name: argowf-superuser
+      key: password
+
+artifactRepository:
+  archiveLogs: true
+  s3:
+    endpoint: minio.localtest
+    # superuser
+    accessKeySecret:
+      key: cm9vdFVzZXI=
+    # superuser
+    secretKeySecret:
+      key: cm9vdFBhc3N3b3Jk
+    insecure: false
+    bucket: argo-workflow

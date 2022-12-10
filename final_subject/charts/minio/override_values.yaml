@@ -1,0 +1,25 @@
+mode: standalone
+
+consoleIngress:
+  enabled: true
+  ingressClassName: "nginx"
+  hosts:
+    - minio.localtest
+
+rootUser: "rootUser"
+rootPassword: "rootPassword"
+
+resources:
+  requests:
+    cpu: 1
+    memory: "1Gi"
+  limits:
+    cpu: 1
+    memory: "1Gi"
+
+buckets:
+  - name: argo-workflow
+    policy: none
+    purge: false
+    versioning: false
+    objectlocking: false
