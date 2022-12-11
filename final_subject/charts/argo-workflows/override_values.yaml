@@ -21,12 +21,10 @@ controller:
 artifactRepository:
   archiveLogs: true
   s3:
-    endpoint: minio.localtest
-    # superuser
-    accessKeySecret:
-      key: cm9vdFVzZXI=
-    # superuser
-    secretKeySecret:
-      key: cm9vdFBhc3N3b3Jk
+    endpoint: standalone-minio.minio.svc:9000
     insecure: false
     bucket: argo-workflow
+    accessKeySecret:
+      key: cm9vdFVzZXI=
+    secretKeySecret:
+      key: cm9vdFBhc3N3b3Jk
