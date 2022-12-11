@@ -21,6 +21,7 @@ controller:
 artifactRepository:
   archiveLogs: true
   s3:
+    archiveLogs: true
     endpoint: standalone-minio.minio.svc:9000
     insecure: false
     bucket: argo-workflow
