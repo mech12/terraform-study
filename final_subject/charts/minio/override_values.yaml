@@ -22,14 +22,9 @@ users:
     secretKey: console123
     policy: consoleAdmin
   - accessKey: argowf
-    secretKey: password123
-    policy: argwf
-
-svcaccts:
-  - accessKey: argowf
     existingSecret: argwf-user
     existingSecretKey: secretkey
-    user: argowf
+    policy: argwf
 
 policies:
   - name: argwf
