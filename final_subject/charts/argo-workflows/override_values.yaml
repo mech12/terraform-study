@@ -23,8 +23,8 @@ useDefaultArtifactRepo: true
 artifactRepository:
   archiveLogs: true
   s3:
-    endpoint: http://standalone-minio.argowf.svc:9000
-    insecure: false
+    endpoint: standalone-minio.argowf.svc:9000
+    insecure: true
     bucket: argo-workflow
     accessKeySecret:
       name: argwf-user
