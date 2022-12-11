@@ -26,9 +26,9 @@ users:
     policy: argwf
 
 svcaccts:
-  - accessKey: rootUser
-    existingSecret: standalone-minio
-    existingSecretKey: rootPassword
+  - accessKey: argowf
+    existingSecret: argwf-user
+    existingSecretKey: secretkey
     user: argowf
 
 policies:

@@ -26,6 +26,8 @@ artifactRepository:
     insecure: false
     bucket: argo-workflow
     accessKeySecret:
-      key: cm9vdFVzZXI=
+      name: argwf-user
+      key: accesskey
     secretKeySecret:
-      key: cm9vdFBhc3N3b3Jk
+      name: argwf-user
+      key: secretkey

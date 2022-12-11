@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argwf-user
+  namespace: argowf
+  labels:
+    app: minio
+type: Opaque
+stringData:
+  accesskey: argowf
+  secretkey: password
