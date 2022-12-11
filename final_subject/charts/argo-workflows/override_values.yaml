@@ -7,17 +7,19 @@ server:
 
 controller:
   singleNamespace: true
-  postgresql:
-    host: argowf-rw.cnpg.svc
-    port: 5432
-    database: postgres
-    tableName: argo_workflows
-    userNameSecret:
-      name: argowf-superuser
-      key: username
-    passwordSecret:
-      name: argowf-superuser
-      key: password
+  persistence:
+    archive: true
+    postgresql:
+      host: argowf-rw.cnpg.svc
+      port: 5432
+      database: postgres
+      tableName: argo_workflows
+      userNameSecret:
+        name: argowf-superuser
+        key: username
+      passwordSecret:
+        name: argowf-superuser
+        key: password
 
 useDefaultArtifactRepo: true
 artifactRepository:
