@@ -6,8 +6,7 @@ server:
       - argowf.localtest
 
 controller:
-  workflowNamespaces:
-    - argowf
+  singleNamespace: true
   postgresql:
     host: argowf-rw.cnpg.svc
     port: 5432
