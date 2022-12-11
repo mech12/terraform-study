@@ -25,6 +25,12 @@ users:
     secretKey: password123
     policy: argwf
 
+svcaccts:
+  - accessKey: rootUser
+    existingSecret: standalone-minio
+    existingSecretKey: rootPassword
+    user: argowf
+
 policies:
   - name: argwf
     statements:
