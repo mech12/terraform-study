@@ -18,6 +18,7 @@ controller:
       name: argowf-superuser
       key: password
 
+useDefaultArtifactRepo: true
 artifactRepository:
   archiveLogs: true
   s3:
