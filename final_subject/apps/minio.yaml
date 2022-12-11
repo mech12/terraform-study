@@ -6,7 +6,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: minio
+    namespace: argowf
     server: 'https://kubernetes.default.svc'
   source:
     path: final_subject/charts/minio
