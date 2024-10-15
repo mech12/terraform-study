@@ -2,7 +2,7 @@ resource "aws_lb" "myalb" {
   name               = "t101-alb"
   load_balancer_type = "application"
   subnets            = [aws_subnet.mysubnet1.id, aws_subnet.mysubnet2.id]
-  security_groups = [aws_security_group.mysg.id]
+  security_groups    = [aws_security_group.mysg.id]
 
   tags = {
     Name = "t101-alb"
@@ -27,7 +27,7 @@ resource "aws_lb_listener" "myhttp" {
 }
 
 resource "aws_lb_target_group" "myalbtg" {
-  name = "t101-alb-tg"
+  name     = "t101-alb-tg"
   port     = 8080
   protocol = "HTTP"
   vpc_id   = var.vpc_id

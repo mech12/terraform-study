@@ -1,5 +1,5 @@
 provider "aws" {
-    region = "ap-northeast-2"
+  region = "us-west-2"
 }
 
 variable "user_names" {
@@ -15,5 +15,5 @@ variable "user_names" {
 
 resource "aws_iam_user" "count" {
   count = length(var.user_names)
-  name = var.user_names[count.index]
+  name  = var.user_names[count.index]
 }

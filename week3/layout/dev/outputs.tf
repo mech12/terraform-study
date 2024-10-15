@@ -13,7 +13,7 @@ output "db_port" {
   description = "The port the database is listening on"
 }
 
-output "myalb_dns" {
-  value       = module.my-service.myalb_dns
-  description = "The DNS Address of the ALB"
-}
+# output "myalb_dns" {
+#   value       = module.my-service.myalb_dns
+#   description = "The DNS Address of the ALB"
+# }

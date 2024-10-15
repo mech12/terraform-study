@@ -12,7 +12,7 @@ variable "postfix" {
 
 
 provider "aws" {
-  region = "ap-northeast-2"
+  region = "us-west-2"
 }
 
 resource "aws_s3_bucket" "mys3bucket" {

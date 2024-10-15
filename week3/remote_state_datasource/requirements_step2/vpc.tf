@@ -1,9 +1,9 @@
 provider "aws" {
-  region = "ap-northeast-2"
+  region = "us-west-2"
 }
 
 resource "aws_vpc" "akbun-vpc" {
-  cidr_block       = "10.10.0.0/16"
+  cidr_block           = "10.10.0.0/16"
   enable_dns_support   = true
   enable_dns_hostnames = true
 

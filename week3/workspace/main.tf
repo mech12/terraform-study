@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "ap-northeast-2"
+  region = "us-west-2"
 }
 
 resource "aws_instance" "example" {
@@ -12,9 +12,9 @@ resource "aws_instance" "example" {
 
 terraform {
   backend "s3" {
-    bucket = "akbun-t101study-tfstate-week3"
-    key    = "workspaces-default/terraform.tfstate"
-    region = "ap-northeast-2"
+    bucket         = "akbun-t101study-tfstate3-week3"
+    key            = "workspaces-default/terraform.tfstate"
+    region         = "ap-northeast-2"
     dynamodb_table = "terraform-locks-week3"
   }
 }

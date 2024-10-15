@@ -2,7 +2,7 @@ resource "aws_subnet" "mysubnet1" {
   vpc_id     = var.vpc_id
   cidr_block = "10.10.1.0/24"
 
-  availability_zone = "ap-northeast-2a"
+  availability_zone = "us-west-2a"
 
   tags = {
     Name = "t101-subnet1"
@@ -13,7 +13,7 @@ resource "aws_subnet" "mysubnet2" {
   vpc_id     = var.vpc_id
   cidr_block = "10.10.2.0/24"
 
-  availability_zone = "ap-northeast-2c"
+  availability_zone = "us-west-2c"
 
   tags = {
     Name = "t101-subnet2"
