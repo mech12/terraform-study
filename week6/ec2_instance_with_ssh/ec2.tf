@@ -1,14 +1,14 @@
-resource "aws_key_pair" "demo" {
-  key_name   = "demo"
-  public_key = file("./demo.pub")
+resource "aws_key_pair" "demo" {  // aws_key_pair 리소스 생성
+  key_name   = "demo"             // key_name은 demo로 설정
+  public_key = file("./demo.pub") // demo.pub 파일을 읽어서 public_key로 사용
 }
 
-data "aws_ami" "amazon-linux-2" {
-  most_recent = true
+data "aws_ami" "amazon-linux-2" { // aws_ami 데이터 소스 생성
+  most_recent = true              // 가장 최근의 AMI를 가져옴
 
-  filter {
-    name   = "owner-alias"
-    values = ["amazon"]
+  filter {                 // 필터 설정
+    name   = "owner-alias" // 소유자 별칭
+    values = ["amazon"]    // 소유자 별칭이 amazon인 AMI만 가져옴
   }
 
   filter {
@@ -16,7 +16,7 @@ data "aws_ami" "amazon-linux-2" {
     values = ["amzn2-ami-hvm*"]
   }
 
-  owners = ["amazon"]
+  owners = ["amazon"] // AMI 소유자가 amazon인 AMI만 가져옴
 }
 
 resource "aws_instance" "example" {
@@ -36,7 +36,8 @@ resource "aws_iam_role" "instance" {
 data "aws_iam_policy_document" "assume_role" {
   statement {
     effect  = "Allow"
-    actions = ["sts:AssumeRole"]
+    actions = ["sts:AssumeRole"] // AssumeRole 권한을 부여. 
+    // AssumeRole은 다른 AWS 서비스가 이 역할을 가지고 다른 역할을 가지고 다른 AWS 서비스에 대한 액세스를 요청할 수 있도록 함
 
     principals {
       type        = "Service"
@@ -58,7 +59,7 @@ data "aws_iam_policy_document" "ec2_admin_permissions" {
   }
 
   statement {
-    sid = "1"
+    sid = "1" # Statement ID : 정책 문서 내에서 고유한 식별자
 
     actions = [
       "s3:ListAllMyBuckets",
